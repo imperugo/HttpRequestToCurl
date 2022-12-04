@@ -15,14 +15,20 @@ public static class HttpRequestExtensions
     /// Generate the cURL from ad instance of <see cref="HttpRequestStorage"/>.
     /// </summary>
     /// <param name="storage">The Http Request storage.</param>
+    /// <param name="insecure">True if you want to user insecure flag, otherwise False.</param>
     /// <param name="includeDelimiters">The Http Request storage.</param>
     /// <returns>The cURL.</returns>
-    public static string ToCurl(this HttpRequestStorage storage, bool includeDelimiters = false)
+    public static string ToCurl(this HttpRequestStorage storage, bool insecure = false,  bool includeDelimiters = false)
     {
         var sb = new StringBuilder();
 
         if (includeDelimiters)
             sb.AppendLine("--------------------- cURL REQUEST BEGIN ---------------------");
+
+        sb.AppendLine("curl --location ");
+
+        if (insecure)
+            sb.Append("--insecure ");
 
         sb.AppendLine($"curl --location --request {storage.Method} '{storage.Url}'");
 
@@ -46,16 +52,20 @@ public static class HttpRequestExtensions
     /// Generate the cURL from ad instance of <see cref="HttpRequest"/>.
     /// </summary>
     /// <param name="request">The Http Request.</param>
+    /// <param name="insecure">True if you want to user insecure flag, otherwise False.</param>
+    /// <param name="includeDelimiters">The Http Request storage.</param>
     /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
     /// <returns>The cURL.</returns>
-    public static async Task<string> ToCurlAsync(this HttpRequest request, CancellationToken cancellationToken = default)
+    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = true, bool includeDelimiters = false, CancellationToken cancellationToken = default)
 #else
     /// <summary>
     /// Generate the cURL from ad instance of <see cref="HttpRequest"/>.
     /// </summary>
     /// <param name="request">The Http Request.</param>
+    /// <param name="insecure">True if you want to user insecure flag, otherwise False.</param>
+    /// <param name="includeDelimiters">The Http Request storage.</param>
     /// <returns>The cURL.</returns>
-    public static async Task<string> ToCurlAsync(this HttpRequest request)
+    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = true, bool includeDelimiters = false)
 #endif
     {
         var headers = new HeaderStorage[request.Headers.Count];
@@ -81,7 +91,7 @@ public static class HttpRequestExtensions
 #else
                 await reader.ReadToEndAsync())
 #endif
-            .ToCurl();
+            .ToCurl(insecure: insecure, includeDelimiters: includeDelimiters);
 
         request.Body.Position = 0;
 

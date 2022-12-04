@@ -1,7 +1,7 @@
 # Imperugo.HttpRequestToCurl
 
-[![Nuget](https://img.shields.io/nuget/v/HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
-[![Nuget](https://img.shields.io/nuget/vpre/HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
+[![Nuget](https://img.shields.io/nuget/v/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
+[![Nuget](https://img.shields.io/nuget/vpre/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
 [![GitHub](https://img.shields.io/github/license/imperugo/HttpRequestToCurl?style=flat-square)](https://github.com/imperugo/HttpRequestToCurl/blob/main/LICENSE)
 
 The idea of this library is to have a curl from an HttpRequest instance.
@@ -70,6 +70,11 @@ dbug: Imperugo.HttpRequestToCurl.Sample.Controllers.HomeController[0]
       --header 'Sec-Fetch-User: ?1' 
       --header 'Sec-Fetch-Dest: document'
 ```
+
+> If you want to use the `--insecure` you could do it with the specific parameter.
+> ```csharp
+> var curl = await Request.ToCurlAsync(insecure:true);
+> ```
 
 ## Sample
 
