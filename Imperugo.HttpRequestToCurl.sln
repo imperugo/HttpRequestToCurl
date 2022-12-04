@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{634ED8CC-EFE9-4E91-9BD1-68B9940EB9A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imperugo.HttpRequestToCurl", "src\Imperugo.HttpRequestToCurl\Imperugo.HttpRequestToCurl.csproj", "{70E17B00-4C04-4C90-8F5A-144D7E368188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{21844069-7725-4AE7-93E9-11732E3A1153}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imperugo.HttpRequestToCurl.Sample", "sample\Imperugo.HttpRequestToCurl.Sample\Imperugo.HttpRequestToCurl.Sample.csproj", "{E769B194-A0DC-44A7-BEEF-CDE87DAF881C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70E17B00-4C04-4C90-8F5A-144D7E368188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E17B00-4C04-4C90-8F5A-144D7E368188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E17B00-4C04-4C90-8F5A-144D7E368188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E17B00-4C04-4C90-8F5A-144D7E368188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E769B194-A0DC-44A7-BEEF-CDE87DAF881C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E769B194-A0DC-44A7-BEEF-CDE87DAF881C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E769B194-A0DC-44A7-BEEF-CDE87DAF881C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E769B194-A0DC-44A7-BEEF-CDE87DAF881C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70E17B00-4C04-4C90-8F5A-144D7E368188} = {634ED8CC-EFE9-4E91-9BD1-68B9940EB9A7}
+		{E769B194-A0DC-44A7-BEEF-CDE87DAF881C} = {21844069-7725-4AE7-93E9-11732E3A1153}
+	EndGlobalSection
+EndGlobal
