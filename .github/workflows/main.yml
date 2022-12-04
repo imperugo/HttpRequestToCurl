@@ -25,7 +25,7 @@ jobs:
         run: dotnet test --verbosity quiet
 
       - name: Build with dotnet
-        run: dotnet pack ./src/Imperugo.HttpRequestToCurl/Imperugo.HttpRequestToCurl.csproj -o ./packages/ -c Release
+        run: dotnet pack ./src/Imperugo.HttpRequestToCurl/Imperugo.HttpRequestToCurl.csproj --version-suffix ${{ github.run_number }} -o ./packages/ -c Release
 
       - name: Publish nuget
         run: |
