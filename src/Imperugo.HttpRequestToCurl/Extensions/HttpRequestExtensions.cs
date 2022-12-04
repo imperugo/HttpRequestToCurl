@@ -41,12 +41,22 @@ public static class HttpRequestExtensions
         return sb.ToString();
     }
 
+#if NET7_0
+    /// <summary>
+    /// Generate the cURL from ad instance of <see cref="HttpRequest"/>.
+    /// </summary>
+    /// <param name="request">The Http Request.</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+    /// <returns>The cURL.</returns>
+    public static async Task<string> ToCurlAsync(this HttpRequest request, CancellationToken cancellationToken = default)
+#else
     /// <summary>
     /// Generate the cURL from ad instance of <see cref="HttpRequest"/>.
     /// </summary>
     /// <param name="request">The Http Request.</param>
     /// <returns>The cURL.</returns>
     public static async Task<string> ToCurlAsync(this HttpRequest request)
+#endif
     {
         var headers = new HeaderStorage[request.Headers.Count];
         var count = 0;
@@ -66,7 +76,11 @@ public static class HttpRequestExtensions
                 request.ContentType,
                 request.GetDisplayUrl(),
                 headers,
+#if NET7_0
+                await reader.ReadToEndAsync(cancellationToken))
+#else
                 await reader.ReadToEndAsync())
+#endif
             .ToCurl();
 
         request.Body.Position = 0;
