@@ -78,7 +78,7 @@ dbug: Imperugo.HttpRequestToCurl.Sample.Controllers.HomeController[0]
 
 ## Sample
 
-Take a look [here](https://github.com/imperugo/HttpRequestToCurl/blob/main/sample/HttpRequestToCurl.Sample****)
+Take a look [here](https://github.com/imperugo/HttpRequestToCurl/tree/main/sample/Imperugo.HttpRequestToCurl.Sample)
 
 ## License
 
