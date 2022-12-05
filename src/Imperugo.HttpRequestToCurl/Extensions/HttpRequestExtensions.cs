@@ -25,12 +25,12 @@ public static class HttpRequestExtensions
         if (includeDelimiters)
             sb.AppendLine("--------------------- cURL REQUEST BEGIN ---------------------");
 
-        sb.AppendLine("curl --location ");
+        sb.Append("curl --location ");
 
         if (insecure)
             sb.Append("--insecure ");
 
-        sb.AppendLine($"curl --location --request {storage.Method} '{storage.Url}'");
+        sb.AppendLine($"--request {storage.Method} '{storage.Url}'");
 
         foreach (var header in storage.Headers)
             sb.AppendLine($"--header '{header.Key}: {string.Join(',', header.Value)}' ");

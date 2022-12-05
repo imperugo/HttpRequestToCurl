@@ -30,27 +30,27 @@ public record HttpRequestStorage
     /// <summary>
     /// The HttpRequest Verb.
     /// </summary>
-    public string Method { get; private set; }
+    public string Method { get; set; }
 
     /// <summary>
     /// The Content Type of the HttpRequest
     /// </summary>
-    public string? ContentType { get; private set; }
+    public string? ContentType { get; set; }
 
     /// <summary>
     /// The HttpRequest url.
     /// </summary>
-    public string Url { get; private set; }
+    public string Url { get; set; }
 
     /// <summary>
     /// The HttpRequest Headers
     /// </summary>
-    public HeaderStorage[] Headers { get; private set; }
+    public HeaderStorage[] Headers { get; set; }
 
     /// <summary>
     /// The HttpRequest Payload
     /// </summary>
-    public string? Payload { get; private set; }
+    public string? Payload { get; set; }
 }
 
 /// <summary>
@@ -72,10 +72,10 @@ public record HeaderStorage
     /// <summary>
     /// The Http Header Key.
     /// </summary>
-    public string Key { get; private set; }
+    public string Key { get; set; }
 
     /// <summary>
     /// The Http Header Value.
     /// </summary>
-    public string Value { get; private set; }
+    public string Value { get; set; }
 }

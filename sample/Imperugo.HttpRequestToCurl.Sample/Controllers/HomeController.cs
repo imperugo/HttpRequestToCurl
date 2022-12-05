@@ -23,6 +23,15 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public async Task<IActionResult> PostAsync()
+    {
+        var curl = await Request.ToCurlAsync();
+
+        _logger.LogDebug(curl);
+        return Ok();
+    }
+
     public IActionResult Privacy()
     {
         return View();
