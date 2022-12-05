@@ -1,7 +1,7 @@
 # Imperugo.HttpRequestToCurl
 
-[![Nuget](https://img.shields.io/nuget/v/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
-[![Nuget](https://img.shields.io/nuget/vpre/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/HttpRequestToCurl/)
+[![Nuget](https://img.shields.io/nuget/v/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/Imperugo.HttpRequestToCurl/)
+[![Nuget](https://img.shields.io/nuget/vpre/Imperugo.HttpRequestToCurl?style=flat-square)](https://www.nuget.org/packages/Imperugo.HttpRequestToCurl/)
 [![GitHub](https://img.shields.io/github/license/imperugo/HttpRequestToCurl?style=flat-square)](https://github.com/imperugo/HttpRequestToCurl/blob/main/LICENSE)
 
 The idea of this library is to have a curl from an HttpRequest instance.
