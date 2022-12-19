@@ -30,16 +30,16 @@ public static class HttpRequestExtensions
         if (insecure)
             sb.Append("--insecure ");
 
-        sb.AppendLine($"--request {storage.Method} '{storage.Url}'");
+        sb.AppendLine($"--request {storage.Method} '{storage.Url}' \\");
 
         foreach (var header in storage.Headers)
-            sb.AppendLine($"--header '{header.Key}: {string.Join(',', header.Value)}' ");
+            sb.AppendLine($"--header '{header.Key}: {string.Join(',', header.Value)}' \\");
 
         if (storage.ContentType?.Length > 0)
-            sb.AppendLine($"--header 'Content-Type: {storage.ContentType}' ");
+            sb.AppendLine($"--header 'Content-Type: {storage.ContentType}' \\");
 
         if (storage.Payload?.Length > 0)
-            sb.AppendLine($"--data-raw '{storage.Payload}'");
+            sb.AppendLine($"--data-raw '{storage.Payload}' \\");
 
         if (includeDelimiters)
             sb.AppendLine("--------------------- cURL REQUEST END ---------------------");
@@ -56,7 +56,7 @@ public static class HttpRequestExtensions
     /// <param name="includeDelimiters">The Http Request storage.</param>
     /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
     /// <returns>The cURL.</returns>
-    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = true, bool includeDelimiters = false, CancellationToken cancellationToken = default)
+    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = false, bool includeDelimiters = false, CancellationToken cancellationToken = default)
 #else
     /// <summary>
     /// Generate the cURL from ad instance of <see cref="HttpRequest"/>.
@@ -65,7 +65,7 @@ public static class HttpRequestExtensions
     /// <param name="insecure">True if you want to user insecure flag, otherwise False.</param>
     /// <param name="includeDelimiters">The Http Request storage.</param>
     /// <returns>The cURL.</returns>
-    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = true, bool includeDelimiters = false)
+    public static async Task<string> ToCurlAsync(this HttpRequest request, bool insecure = false, bool includeDelimiters = false)
 #endif
     {
         var headers = new HeaderStorage[request.Headers.Count];
