@@ -7,6 +7,8 @@
 The idea of this library is to have a curl from an HttpRequest instance.
 The library produce a string that could be logged everywhere (console, db and so on).
 
+**Read the blog post [here](https://imperugo.medium.com/log-curl-from-your-http-request-797562a14ad9) for more information.**
+
 ## Quickstart
 
 ### Installation
