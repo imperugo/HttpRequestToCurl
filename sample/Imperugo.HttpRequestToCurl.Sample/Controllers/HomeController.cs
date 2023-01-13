@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+// Copyright (c) Ugo Lattanzi.  All Rights Reserved.  Licensed under the MIT license.  See License.txt in the project root for license information.
+
+using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +19,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> IndexAsync()
     {
-        var curl = await Request.ToCurlAsync();
+        var curl = await Request.ToCurlAsync(Extensions.ToCurlOptions.CmdExe);
 
         _logger.LogDebug(curl);
         return View();
@@ -26,7 +28,7 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> PostAsync()
     {
-        var curl = await Request.ToCurlAsync();
+        var curl = await Request.ToCurlAsync(Extensions.ToCurlOptions.CmdExe);
 
         _logger.LogDebug(curl);
         return Ok();
