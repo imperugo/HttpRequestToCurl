@@ -17,20 +17,27 @@ public record HttpRequestStorage
     /// <param name="contentType">The http request content type.</param>
     /// <param name="url">The http request url.</param>
     /// <param name="headers">The http request headers.</param>
+    /// <param name="protocol">The http protocol (i.e. http/2.0)</param>
     /// <param name="payload">The http request body.</param>
-    public HttpRequestStorage(string method, string? contentType, string url, HeaderStorage[] headers, string? payload)
+    public HttpRequestStorage(string method, string? contentType, string url, HeaderStorage[] headers, string protocol, string? payload)
     {
         Method = method;
         ContentType = contentType;
         Url = url;
         Headers = headers;
         Payload = payload;
+        Protocol = protocol;
     }
 
     /// <summary>
     /// The HttpRequest Verb.
     /// </summary>
     public string Method { get; set; }
+
+    /// <summary>
+    /// The Http Protocol.
+    /// </summary>
+    public string Protocol { get; set; }
 
     /// <summary>
     /// The Content Type of the HttpRequest

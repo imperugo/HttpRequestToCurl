@@ -39,10 +39,14 @@ public static class HttpRequestExtensions
     {
         var commandLines = new List<string>();
 
+        var sanitizedProtocol = storage.Protocol == "HTTP/2.0"
+            ? "http2"
+            : "http1.1";
+
         if (insecure)
-            commandLines.Add($"{options.CommandSequence} --location --insecure --request {storage.Method} {options.QuoteSequence}{storage.Url}{options.QuoteSequence}");
+            commandLines.Add($"{options.CommandSequence} --{sanitizedProtocol} --location --insecure --request {storage.Method} {options.QuoteSequence}{storage.Url}{options.QuoteSequence}");
         else
-            commandLines.Add($"{options.CommandSequence} --location --request {storage.Method} {options.QuoteSequence}{storage.Url}{options.QuoteSequence}");
+            commandLines.Add($"{options.CommandSequence} --{sanitizedProtocol} --location --request {storage.Method} {options.QuoteSequence}{storage.Url}{options.QuoteSequence}");
 
         foreach (var header in storage.Headers)
             commandLines.Add($"--header {options.QuoteSequence}{header.Key}: {string.Join(',', header.Value.Replace(options.QuoteSequence, options.InnerQuoteSequence))}{options.QuoteSequence}");
@@ -127,6 +131,7 @@ public static class HttpRequestExtensions
                 request.ContentType,
                 request.GetDisplayUrl(),
                 headers,
+                request.Protocol,
 #if NET7_0
                 await reader.ReadToEndAsync(cancellationToken))
 #else

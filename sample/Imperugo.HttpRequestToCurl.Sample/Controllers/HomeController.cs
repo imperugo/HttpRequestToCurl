@@ -19,7 +19,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> IndexAsync()
     {
-        var curl = await Request.ToCurlAsync(Extensions.ToCurlOptions.CmdExe);
+        var curl = await Request.ToCurlAsync();
 
         _logger.LogDebug(curl);
         return View();

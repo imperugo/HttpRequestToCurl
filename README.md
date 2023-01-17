@@ -78,6 +78,20 @@ dbug: Imperugo.HttpRequestToCurl.Sample.Controllers.HomeController[0]
 > var curl = await Request.ToCurlAsync(insecure:true);
 > ```
 
+By default the `ToCurl` command generates an output that is compatible with the Bash but, if you are running on Windows or another system and you need a different output, you can specify it as parameter
+
+Right now the supported output are:
+
+- Bash (default)
+- Command
+- Powershell
+
+```csharp
+var curl = await Request.ToCurlAsync(Extensions.ToCurlOptions.CmdExe);
+```
+
+
+
 ## Sample
 
 Take a look [here](https://github.com/imperugo/HttpRequestToCurl/tree/main/sample/Imperugo.HttpRequestToCurl.Sample)
