@@ -65,7 +65,7 @@ public static class HttpRequestExtensions
         return command;
     }
 
-#if NET7_0
+#if NET7_0_OR_GREATER
     /// <summary>
     /// Generate the cURL from ad instance of <see cref="HttpRequest" />.
     /// </summary>
@@ -132,7 +132,7 @@ public static class HttpRequestExtensions
                 request.GetDisplayUrl(),
                 headers,
                 request.Protocol,
-#if NET7_0
+#if NET7_0_OR_GREATER
                 await reader.ReadToEndAsync(cancellationToken))
 #else
                 await reader.ReadToEndAsync())
